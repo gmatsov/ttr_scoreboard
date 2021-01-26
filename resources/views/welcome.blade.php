@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Ticket to Ride Scoreboard</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -21,6 +21,9 @@
             margin: 0
         }
 
+        img  {
+            width: 100%;
+        }
         a {
             background-color: transparent
         }
@@ -394,13 +397,16 @@
     </style>
 </head>
 <body class="antialiased">
+
+
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
 
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-        <img src="{{asset('images/ticket_to_ride_welcome.png')}}" alt="" class="block h-11 w-auto">
+        <img src="{{asset('images/ticket_to_ride_welcome.png')}}" alt="ticket to ride"
+             class="object-contain  h-48 w-full md:w-48 ">
         @if (Route::has('login'))
-            <div class="hidden text-center px-6 py-4 sm:block">
+            <div class=" text-center px-6 py-4 sm:block">
                 @auth
                     <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
                 @else

@@ -15,22 +15,27 @@
                 <label for="played_at" class="uppercase tracking-wide text-black text-xs font-bold mb-2 block">
                     Дата на игра
                 </label>
-                <input type="date" class="rounded-md  w-fu  ll md:w-1/2" wire:model="played_at">
+                <input type="date" class="rounded-md ll md:w-1/2 w-full" wire:model="played_at">
                 @error('played_at') <span class="error text-red-600">{{ $message }}</span> @enderror
 
             </div>
             <div class="mb-10 md:mb-0">
                 <div class="m-3">
-                    <label class="uppercase tracking-wide text-black text-xs font-bold mb-2 w-full md:w-1/2 inline-block mr-14">
+                    <label
+                        class="uppercase tracking-wide text-black text-xs font-bold mb-2 hidden md:w-1/2  md:inline-block mr-14">
                         Име на играч
                     </label>
-                    <label class="uppercase tracking-wide text-black text-xs font-bold mb-2 w-full md:w-1/3 ">
+                    <label class="uppercase tracking-wide text-black text-xs font-bold mb-2  hidden md:inline-block md:w-1/3 ">
                         Резултат
                     </label>
                 </div>
                 @for($i =1; $i <= $max_players; $i++)
                     <div class="mb-2">
-                        <select wire:model="player{{$i}}_id" class="rounded-md w-1/2 mr-14">
+                        <label
+                            class="uppercase tracking-wide text-black text-xs font-bold mb-2 md:hidden w-full inline-block mr-14">
+                            Име на играч
+                        </label>
+                        <select wire:model="player{{$i}}_id" class="rounded-md md:w-1/2 w-full mr-14">
                             <option value=""></option>
 
                             @foreach($players as $player)
@@ -38,7 +43,12 @@
                                         value="{{$player->id}}">{{$player->name}}</option>
                             @endforeach
                         </select>
-                        <input type="number" wire:model="player{{$i}}_score" class="rounded-md w-1/3 ">
+
+                        <label class="uppercase tracking-wide text-black text-xs font-bold mb-2 md:hidden w-full">
+                            Резултат
+                        </label>
+
+                        <input type="number" wire:model="player{{$i}}_score" class="rounded-md md:w-1/3 w-full">
                         @error('player'.$i.'_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                         @error('player'.$i.'_score')
                         <span class="error text-red-600">{{ $message }}</span>
