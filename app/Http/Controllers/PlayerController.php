@@ -12,6 +12,11 @@ class PlayerController extends Controller
         return view('player.create');
     }
 
+    public function index()
+    {
+        return view('player.index');
+    }
+
     public function store(Request $request)
     {
         Player::create($request->all());
